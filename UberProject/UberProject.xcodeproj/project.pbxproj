@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		0F9AB31426B58B1800362E64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB31326B58B1800362E64 /* AppDelegate.swift */; };
 		0F9AB31626B58B1800362E64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB31526B58B1800362E64 /* SceneDelegate.swift */; };
-		0F9AB31826B58B1800362E64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB31726B58B1800362E64 /* ViewController.swift */; };
 		0F9AB31B26B58B1800362E64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F9AB31926B58B1800362E64 /* Main.storyboard */; };
 		0F9AB31D26B58B1800362E64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F9AB31C26B58B1800362E64 /* Assets.xcassets */; };
 		0F9AB32026B58B1800362E64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F9AB31E26B58B1800362E64 /* LaunchScreen.storyboard */; };
 		0F9AB32B26B58B1900362E64 /* UberProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB32A26B58B1900362E64 /* UberProjectTests.swift */; };
 		0F9AB33626B58B1900362E64 /* UberProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB33526B58B1900362E64 /* UberProjectUITests.swift */; };
+		0F9AB34A26B58C8700362E64 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB34926B58C8700362E64 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 		0F9AB31026B58B1800362E64 /* UberProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9AB31326B58B1800362E64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F9AB31526B58B1800362E64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0F9AB31726B58B1800362E64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F9AB31A26B58B1800362E64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F9AB31C26B58B1800362E64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F9AB31F26B58B1800362E64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		0F9AB33126B58B1900362E64 /* UberProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9AB33526B58B1900362E64 /* UberProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberProjectUITests.swift; sourceTree = "<group>"; };
 		0F9AB33726B58B1900362E64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F9AB34926B58C8700362E64 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +99,13 @@
 		0F9AB31226B58B1800362E64 /* UberProject */ = {
 			isa = PBXGroup;
 			children = (
+				0F9AB34826B58BFC00362E64 /* Model */,
+				0F9AB34726B58BFA00362E64 /* View */,
+				0F9AB34626B58BF900362E64 /* Controller */,
+				0F9AB34426B58BF200362E64 /* Service */,
+				0F9AB34326B58BED00362E64 /* Utils */,
 				0F9AB31326B58B1800362E64 /* AppDelegate.swift */,
 				0F9AB31526B58B1800362E64 /* SceneDelegate.swift */,
-				0F9AB31726B58B1800362E64 /* ViewController.swift */,
 				0F9AB31926B58B1800362E64 /* Main.storyboard */,
 				0F9AB31C26B58B1800362E64 /* Assets.xcassets */,
 				0F9AB31E26B58B1800362E64 /* LaunchScreen.storyboard */,
@@ -126,6 +130,42 @@
 				0F9AB33726B58B1900362E64 /* Info.plist */,
 			);
 			path = UberProjectUITests;
+			sourceTree = "<group>";
+		};
+		0F9AB34326B58BED00362E64 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0F9AB34426B58BF200362E64 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0F9AB34626B58BF900362E64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F9AB34926B58C8700362E64 /* LoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0F9AB34726B58BFA00362E64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F9AB34826B58BFC00362E64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +298,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F9AB31826B58B1800362E64 /* ViewController.swift in Sources */,
 				0F9AB31426B58B1800362E64 /* AppDelegate.swift in Sources */,
+				0F9AB34A26B58C8700362E64 /* LoginController.swift in Sources */,
 				0F9AB31626B58B1800362E64 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
