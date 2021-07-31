@@ -70,10 +70,7 @@ class LoginController : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
-  }
-  
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
+    configureNavigationBar()
   }
   
   //MARK: - Functions
@@ -106,9 +103,15 @@ class LoginController : UIViewController {
       $0.height.equalTo(32)
     }
   }
+
+  private func configureNavigationBar() {
+    navigationController?.navigationBar.isHidden = true
+    navigationController?.navigationBar.barStyle = .black
+  }
   
   //MARK: - @objc func
   @objc func handleShowSignUp() {
-    
+    let controller = SignUpController()
+    navigationController?.pushViewController(controller, animated: true)
   }
 }
