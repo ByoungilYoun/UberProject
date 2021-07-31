@@ -20,48 +20,27 @@ class LoginController : UIViewController {
   }()
   
   private lazy var emailContainerView : UIView = {
-    let view = UIView()
-
-    let imageView = UIImageView()
-    imageView.image = #imageLiteral(resourceName: "ic_mail_outline_white_2x")
-    imageView.alpha = 0.87
-    view.addSubview(imageView)
-    
-    imageView.snp.makeConstraints {
-      $0.centerY.equalToSuperview()
-      $0.leading.equalToSuperview().offset(8)
-      $0.width.height.equalTo(24)
+    let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_mail_outline_white_2x"), textField: emailTextField)
+    view.snp.makeConstraints {
+      $0.height.equalTo(50)
     }
-    
-    view.addSubview(emailTextField)
-    emailTextField.snp.makeConstraints {
-      $0.leading.equalTo(imageView.snp.trailing).offset(8)
-      $0.centerY.equalToSuperview()
-      $0.bottom.equalToSuperview().offset(-8)
-      $0.trailing.equalToSuperview()
+    return view
+  }()
+  
+  private lazy var passwordContainerView : UIView = {
+    let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_lock_outline_white_2x"), textField: passwordTextField)
+    view.snp.makeConstraints {
+      $0.height.equalTo(50)
     }
-    
-    let seperatorView = UIView()
-    seperatorView.backgroundColor = .lightGray
-    view.addSubview(seperatorView)
-    seperatorView.snp.makeConstraints {
-      $0.leading.equalTo(imageView)
-      $0.trailing.equalToSuperview()
-      $0.bottom.equalToSuperview()
-      $0.height.equalTo(0.75)
-    }
-    
     return view
   }()
   
   private let emailTextField : UITextField = {
-    let tf = UITextField()
-    tf.borderStyle = .none
-    tf.font = UIFont.systemFont(ofSize: 16)
-    tf.textColor = .white
-    tf.keyboardAppearance = .dark
-    tf.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [.foregroundColor : UIColor.lightGray])
-    return tf
+    return UITextField().textField(withPlaceholder: "Email", isSecureTextEntry: false)
+  }()
+  
+  private let passwordTextField : UITextField = {
+    return UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: true)
   }()
   
   //MARK: - Lifecycle
@@ -78,7 +57,12 @@ class LoginController : UIViewController {
   private func configureUI() {
     view.backgroundColor = UIColor(red: 25 / 255, green: 25 / 255, blue: 25 / 255, alpha: 1)
     
-    [titleLabel, emailContainerView].forEach {
+    let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView])
+    stack.axis = .vertical
+    stack.distribution = .fillEqually
+    stack.spacing = 16
+    
+    [titleLabel, stack].forEach {
       view.addSubview($0)
     }
     
@@ -87,11 +71,10 @@ class LoginController : UIViewController {
       $0.centerX.equalToSuperview()
     }
     
-    emailContainerView.snp.makeConstraints {
+    stack.snp.makeConstraints {
       $0.top.equalTo(titleLabel.snp.bottom).offset(40)
       $0.leading.equalToSuperview().offset(16)
       $0.trailing.equalToSuperview().offset(-16)
-      $0.height.equalTo(50)
     }
   }
 }

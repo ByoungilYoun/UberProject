@@ -16,6 +16,7 @@
 		0F9AB33626B58B1900362E64 /* UberProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB33526B58B1900362E64 /* UberProjectUITests.swift */; };
 		0F9AB34A26B58C8700362E64 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB34926B58C8700362E64 /* LoginController.swift */; };
 		0F9AB34D26B5910A00362E64 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F9AB34C26B5910A00362E64 /* SnapKit */; };
+		0F9AB35126B5A6AD00362E64 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB35026B5A6AD00362E64 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		0F9AB33526B58B1900362E64 /* UberProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberProjectUITests.swift; sourceTree = "<group>"; };
 		0F9AB33726B58B1900362E64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F9AB34926B58C8700362E64 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		0F9AB35026B5A6AD00362E64 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		0F9AB34326B58BED00362E64 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0F9AB35026B5A6AD00362E64 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				0F9AB31426B58B1800362E64 /* AppDelegate.swift in Sources */,
 				0F9AB34A26B58C8700362E64 /* LoginController.swift in Sources */,
 				0F9AB31626B58B1800362E64 /* SceneDelegate.swift in Sources */,
+				0F9AB35126B5A6AD00362E64 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
