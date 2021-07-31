@@ -43,6 +43,29 @@ class LoginController : UIViewController {
     return UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: true)
   }()
   
+  private let loginButton : UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitle("Log In", for: .normal)
+    button.setTitleColor(UIColor(white: 1, alpha: 0.5), for: .normal)
+    button.backgroundColor = .mainBlueTint
+    button.layer.cornerRadius = 5
+    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+    button.snp.makeConstraints {
+      $0.height.equalTo(50)
+    }
+    return button
+  }()
+  
+  let dontHaveAccountButton : UIButton = {
+    let button = UIButton(type: .system)
+    let attributedTitle = NSMutableAttributedString(string: "Don't have an account?", attributes: [.font : UIFont.systemFont(ofSize: 16), .foregroundColor : UIColor.lightGray])
+    attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [.font : UIFont.boldSystemFont(ofSize: 16), .foregroundColor : UIColor.mainBlueTint]))
+    button.setAttributedTitle(attributedTitle, for: .normal)
+    button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+    return button
+  }()
+  
+  
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,14 +78,14 @@ class LoginController : UIViewController {
   
   //MARK: - Functions
   private func configureUI() {
-    view.backgroundColor = UIColor(red: 25 / 255, green: 25 / 255, blue: 25 / 255, alpha: 1)
+    view.backgroundColor = .backgroundColor
     
-    let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView])
+    let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, loginButton])
     stack.axis = .vertical
     stack.distribution = .fillEqually
-    stack.spacing = 16
+    stack.spacing = 24
     
-    [titleLabel, stack].forEach {
+    [titleLabel, stack, dontHaveAccountButton].forEach {
       view.addSubview($0)
     }
     
@@ -76,5 +99,16 @@ class LoginController : UIViewController {
       $0.leading.equalToSuperview().offset(16)
       $0.trailing.equalToSuperview().offset(-16)
     }
+    
+    dontHaveAccountButton.snp.makeConstraints {
+      $0.centerX.equalToSuperview()
+      $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+      $0.height.equalTo(32)
+    }
+  }
+  
+  //MARK: - @objc func
+  @objc func handleShowSignUp() {
+    
   }
 }
