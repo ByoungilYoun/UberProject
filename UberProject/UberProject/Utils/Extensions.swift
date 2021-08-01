@@ -9,28 +9,45 @@ import UIKit
 
   //MARK: - extension UIView
 extension UIView  {
-  func inputContainerView(image : UIImage, textField : UITextField) -> UIView {
+  func inputContainerView(image : UIImage, textField : UITextField? = nil, segmentedControl : UISegmentedControl? = nil) -> UIView {
     let view = UIView()
     
     let imageView = UIImageView()
     imageView.image = image 
     imageView.alpha = 0.87
     view.addSubview(imageView)
+  
     
-    imageView.snp.makeConstraints {
-      $0.centerY.equalToSuperview()
-      $0.leading.equalToSuperview().offset(8)
-      $0.width.height.equalTo(24)
+    if let textField = textField {
+      imageView.snp.makeConstraints {
+        $0.centerY.equalToSuperview()
+        $0.leading.equalToSuperview().offset(8)
+        $0.width.height.equalTo(24)
+      }
+      
+      view.addSubview(textField)
+      textField.snp.makeConstraints {
+        $0.leading.equalTo(imageView.snp.trailing).offset(8)
+        $0.centerY.equalToSuperview()
+        $0.bottom.equalToSuperview().offset(-8)
+        $0.trailing.equalToSuperview()
+      }
     }
     
-    view.addSubview(textField)
-    textField.snp.makeConstraints {
-      $0.leading.equalTo(imageView.snp.trailing).offset(8)
-      $0.centerY.equalToSuperview()
-      $0.bottom.equalToSuperview().offset(-8)
-      $0.trailing.equalToSuperview()
+    if let sc = segmentedControl {
+      imageView.snp.makeConstraints {
+        $0.top.equalToSuperview().offset(-8)
+        $0.leading.equalToSuperview().offset(8)
+        $0.width.height.equalTo(24)
+      }
+      view.addSubview(sc)
+      sc.snp.makeConstraints {
+        $0.leading.equalToSuperview().offset(8)
+        $0.trailing.equalToSuperview().offset(-8)
+        $0.centerY.equalToSuperview().offset(8)
+      }
     }
-    
+   
     let seperatorView = UIView()
     seperatorView.backgroundColor = .lightGray
     view.addSubview(seperatorView)
