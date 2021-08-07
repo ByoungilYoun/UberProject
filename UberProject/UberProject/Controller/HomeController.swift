@@ -26,8 +26,15 @@ class HomeController : UIViewController {
   
   //MARK: - Functions
   func configureUI() {
+    configureMapView()
+  }
+  
+  func configureMapView() {
     view.addSubview(mapView)
     mapView.frame = view.frame
+    
+    mapView.showsUserLocation = true // 사용자의 위치로 간다.
+    mapView.userTrackingMode = .follow
   }
   
   func checkIfUserIsLoggedIn() {
