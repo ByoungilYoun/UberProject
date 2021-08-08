@@ -16,6 +16,8 @@ class HomeController : UIViewController {
   private let mapView = MKMapView()
   private let locationManager = CLLocationManager()
   
+  private let inputActivationView = LocationInputActivationView()
+  
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,6 +29,14 @@ class HomeController : UIViewController {
   //MARK: - Functions
   func configureUI() {
     configureMapView()
+    
+    view.addSubview(inputActivationView)
+    inputActivationView.snp.makeConstraints {
+      $0.centerX.equalToSuperview()
+      $0.height.equalTo(50)
+      $0.width.equalTo(view.frame.width - 64)
+      $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
+    }
   }
   
   func configureMapView() {
