@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol LocationInputActivationViewDelegate : AnyObject {
+  func presentLocationInputView()
+}
+
 class LocationInputActivationView : UIView {
   
   //MARK: - Properties
+  weak var delegate : LocationInputActivationViewDelegate?
   
   private let indicatorView : UIView = {
     let view = UIView()
@@ -29,6 +34,7 @@ class LocationInputActivationView : UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     configureUI()
+    addTapGesture()
   }
   
   required init?(coder: NSCoder) {
@@ -57,5 +63,15 @@ class LocationInputActivationView : UIView {
       $0.centerY.equalToSuperview()
       $0.leading.equalTo(indicatorView.snp.trailing).offset(20)
     }
+  }
+  
+  private func addTapGesture() {
+    let tap = UITapGestureRecognizer(target: self, action: #selector(presentLocationInputView))
+    addGestureRecognizer(tap)
+  }
+  
+  //MARK: - @objc func
+  @objc func presentLocationInputView() {
+    delegate?.presentLocationInputView()
   }
 }

@@ -37,6 +37,12 @@ class HomeController : UIViewController {
       $0.width.equalTo(view.frame.width - 64)
       $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
     }
+    inputActivationView.alpha = 0
+    inputActivationView.delegate = self
+    
+    UIView.animate(withDuration: 2) {
+      self.inputActivationView.alpha = 1
+    }
   }
   
   func configureMapView() {
@@ -96,5 +102,12 @@ extension HomeController : CLLocationManagerDelegate {
     if manager.authorizationStatus == .authorizedWhenInUse {
       locationManager.requestAlwaysAuthorization() // 한번 사용 허락을 누르면 그다음 바로 계속 허락을 할꺼냐는 request를 보낸다.
     }
+  }
+}
+
+  //MARK: - LocationInputActivationViewDelegate
+extension HomeController : LocationInputActivationViewDelegate {
+  func presentLocationInputView() {
+    print("Debug : handle location input view")
   }
 }
