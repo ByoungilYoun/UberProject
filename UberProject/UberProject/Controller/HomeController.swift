@@ -17,6 +17,7 @@ class HomeController : UIViewController {
   private let locationManager = CLLocationManager()
   
   private let inputActivationView = LocationInputActivationView()
+  private let locationInputView = LocationInputView()
   
   //MARK: - Lifecycle
   override func viewDidLoad() {
@@ -73,6 +74,23 @@ class HomeController : UIViewController {
       print("Debug : error signing out ")
     }
   }
+  
+  func configureLocationInputView() {
+    view.addSubview(locationInputView)
+    locationInputView.snp.makeConstraints {
+      $0.top.leading.trailing.equalToSuperview()
+      $0.height.equalTo(200)
+    }
+    
+    locationInputView.alpha = 0
+    locationInputView.delegate = self
+    
+    UIView.animate(withDuration: 0.5, animations: {
+      self.locationInputView.alpha = 1
+    }) { _ in
+      print("Debug : Present table view...")
+    }
+  }
 }
 
   //MARK: - LocationServices
@@ -108,6 +126,20 @@ extension HomeController : CLLocationManagerDelegate {
   //MARK: - LocationInputActivationViewDelegate
 extension HomeController : LocationInputActivationViewDelegate {
   func presentLocationInputView() {
-    print("Debug : handle location input view")
+    inputActivationView.alpha = 0
+    configureLocationInputView()
+  }
+}
+
+  //MARK: - LocationInputViewDelegate
+extension HomeController : LocationInputViewDelegate {
+  func dismissLocationInputView() {
+    UIView.animate(withDuration: 0.3, animations: {
+      self.locationInputView.alpha = 0
+    }) { _ in
+      UIView.animate(withDuration: 0.3) {
+        self.inputActivationView.alpha = 1
+      }
+    }
   }
 }
