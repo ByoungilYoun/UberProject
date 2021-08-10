@@ -24,6 +24,66 @@ class LocationInputView : UIView {
     return button
   }()
   
+  private let titleLabel : UILabel = {
+    let label = UILabel()
+    label.text = "Jimmy Youn"
+    label.textColor = .darkGray
+    label.font = UIFont.systemFont(ofSize: 16)
+    return label
+  }()
+  
+  private let startLocationIndicatorView : UIView = {
+    let view = UIView()
+    view.backgroundColor = .lightGray
+    return view
+  }()
+  
+  private let linkingView : UIView = {
+    let view = UIView()
+    view.backgroundColor = .darkGray
+    return view
+  }()
+  
+  private let destinationIndicatorView : UIView = {
+    let view = UIView()
+    view.backgroundColor = .black
+    return view
+  }()
+  
+  private lazy var startingLocationTextField : UITextField = {
+    let tf = UITextField()
+    tf.placeholder = "Current Location"
+    tf.backgroundColor = .gray
+    tf.isEnabled = false
+    tf.font = UIFont.systemFont(ofSize: 14)
+    
+    let paddingView = UIView()
+    paddingView.snp.makeConstraints {
+      $0.height.equalTo(30)
+      $0.width.equalTo(8)
+    }
+    tf.leftView = paddingView
+    tf.leftViewMode = .always
+    return tf
+  }()
+  
+  private lazy var destinationLocationTextField : UITextField = {
+    let tf = UITextField()
+    tf.placeholder = "Enter a destination"
+    tf.backgroundColor = .lightGray
+    tf.returnKeyType = .search
+    tf.font = UIFont.systemFont(ofSize: 14)
+    
+    let paddingView = UIView()
+    paddingView.snp.makeConstraints {
+      $0.height.equalTo(30)
+      $0.width.equalTo(8)
+    }
+    tf.leftView = paddingView
+    tf.leftViewMode = .always
+    return tf
+  }()
+  
   //MARK: - init
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -39,7 +99,7 @@ class LocationInputView : UIView {
     addShadow()
     backgroundColor = .white
     
-    [backButton].forEach {
+    [backButton, titleLabel, startingLocationTextField, destinationLocationTextField, startLocationIndicatorView, destinationIndicatorView, linkingView].forEach {
       addSubview($0)
     }
     
@@ -49,6 +109,47 @@ class LocationInputView : UIView {
       $0.width.equalTo(24)
       $0.height.equalTo(25)
     }
+    
+    titleLabel.snp.makeConstraints {
+      $0.centerY.equalTo(backButton)
+      $0.centerX.equalTo(self)
+    }
+    
+    startingLocationTextField.snp.makeConstraints {
+      $0.top.equalTo(backButton.snp.bottom).offset(4)
+      $0.leading.equalToSuperview().offset(40)
+      $0.trailing.equalToSuperview().offset(-40)
+      $0.height.equalTo(30)
+    }
+    
+    destinationLocationTextField.snp.makeConstraints {
+      $0.top.equalTo(startingLocationTextField.snp.bottom).offset(12)
+      $0.leading.equalToSuperview().offset(40)
+      $0.trailing.equalToSuperview().offset(-40)
+      $0.height.equalTo(30)
+    }
+    
+    startLocationIndicatorView.snp.makeConstraints {
+      $0.centerY.equalTo(startingLocationTextField)
+      $0.leading.equalToSuperview().offset(20)
+      $0.width.height.equalTo(6)
+    }
+    
+    startLocationIndicatorView.layer.cornerRadius = 6 / 2
+    
+    destinationIndicatorView.snp.makeConstraints {
+      $0.centerY.equalTo(destinationLocationTextField)
+      $0.leading.equalToSuperview().offset(20)
+      $0.width.height.equalTo(6)
+    }
+    
+    linkingView.snp.makeConstraints {
+      $0.centerX.equalTo(startLocationIndicatorView)
+      $0.top.equalTo(startLocationIndicatorView.snp.bottom).offset(4)
+      $0.bottom.equalTo(destinationIndicatorView.snp.top).offset(-4)
+      $0.width.equalTo(0.5)
+    }
+    
   }
   //MARK: - objc func
   @objc func handleBackTapped() {
