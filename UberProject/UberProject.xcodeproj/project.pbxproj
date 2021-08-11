@@ -23,6 +23,7 @@
 		0F9AB35126B5A6AD00362E64 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB35026B5A6AD00362E64 /* Extensions.swift */; };
 		0F9AB35326B5B3BD00362E64 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB35226B5B3BD00362E64 /* SignUpController.swift */; };
 		0FB9802626B70D070029CE68 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9802526B70D070029CE68 /* AuthButton.swift */; };
+		0FC6745826C436990061B647 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6745726C436990061B647 /* LocationCell.swift */; };
 		3E0A6AE64C616129357E81AC /* Pods_UberProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C337FA69980D3ED80C6AEAFC /* Pods_UberProjectTests.framework */; };
 		4B7C7582EEB41365A3A67F5E /* Pods_UberProject_UberProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE14071CBF7C8BB3D964462 /* Pods_UberProject_UberProjectUITests.framework */; };
 		9721D09C0E97A71DFE409AB5 /* Pods_UberProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B926685FD8D6EB286D55AC14 /* Pods_UberProject.framework */; };
@@ -68,6 +69,7 @@
 		0F9AB35026B5A6AD00362E64 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0F9AB35226B5B3BD00362E64 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		0FB9802526B70D070029CE68 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		0FC6745726C436990061B647 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		31FEBC3D73CF8FAAF8BA1A48 /* Pods-UberProject-UberProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberProject-UberProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-UberProject-UberProjectUITests/Pods-UberProject-UberProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AE14071CBF7C8BB3D964462 /* Pods_UberProject_UberProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberProject_UberProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFA6B986A86EFFD7DF74996 /* Pods-UberProject-UberProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberProject-UberProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-UberProject-UberProjectUITests/Pods-UberProject-UberProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				0FB9802526B70D070029CE68 /* AuthButton.swift */,
 				0F87B79F26C02F22002C3E95 /* LocationInputActivationView.swift */,
 				0F829C3226C19E5C00D45CBD /* LocationInputView.swift */,
+				0FC6745726C436990061B647 /* LocationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				0F829C3326C19E5C00D45CBD /* LocationInputView.swift in Sources */,
 				0F9AB31426B58B1800362E64 /* AppDelegate.swift in Sources */,
 				0F9AB34A26B58C8700362E64 /* LoginController.swift in Sources */,
+				0FC6745826C436990061B647 /* LocationCell.swift in Sources */,
 				0F9AB31626B58B1800362E64 /* SceneDelegate.swift in Sources */,
 				0F87B7A026C02F22002C3E95 /* LocationInputActivationView.swift in Sources */,
 				0F9AB35126B5A6AD00362E64 /* Extensions.swift in Sources */,
