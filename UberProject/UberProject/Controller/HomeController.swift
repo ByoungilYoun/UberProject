@@ -93,7 +93,9 @@ class HomeController : UIViewController {
     UIView.animate(withDuration: 0.5, animations: {
       self.locationInputView.alpha = 1
     }) { _ in
-      print("Debug : Present table view...")
+      UIView.animate(withDuration: 0.3, animations: {
+        self.tableView.frame.origin.y = self.locationInputViewHeight
+      })
     }
   }
   
@@ -102,10 +104,10 @@ class HomeController : UIViewController {
     tableView.dataSource = self
     tableView.register(LocationCell.self, forCellReuseIdentifier: LocationCell.identifier)
     tableView.rowHeight = 60
-    tableView.backgroundColor = .red
+    tableView.backgroundColor = .white
     
     let height = view.frame.height - locationInputViewHeight
-    tableView.frame = CGRect(x: 0, y: view.frame.height - 300, width: view.frame.width, height: height)
+    tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
     view.addSubview(tableView)
    
   }
@@ -152,8 +154,11 @@ extension HomeController : LocationInputActivationViewDelegate {
   //MARK: - LocationInputViewDelegate
 extension HomeController : LocationInputViewDelegate {
   func dismissLocationInputView() {
+    locationInputView.removeFromSuperview()
+    
     UIView.animate(withDuration: 0.3, animations: {
       self.locationInputView.alpha = 0
+      self.tableView.frame.origin.y = self.view.frame.height
     }) { _ in
       UIView.animate(withDuration: 0.3) {
         self.inputActivationView.alpha = 1
