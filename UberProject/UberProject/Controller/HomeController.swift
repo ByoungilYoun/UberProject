@@ -27,6 +27,7 @@ class HomeController : UIViewController {
     super.viewDidLoad()
     checkIfUserIsLoggedIn()
     enableLocationServices()
+    fetchUserData()
 //    signOut()
   }
   
@@ -111,6 +112,11 @@ class HomeController : UIViewController {
     tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
     view.addSubview(tableView)
    
+  }
+  
+  //MARK: - API
+  func fetchUserData() {
+    Service.shared.fetchUserData()
   }
 }
 
