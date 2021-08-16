@@ -22,6 +22,12 @@ class HomeController : UIViewController {
   
   private final let locationInputViewHeight : CGFloat = 200
   
+  private var fullname : String? {
+    didSet {
+      locationInputView.titleLabel.text = fullname
+    }
+  }
+  
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -116,7 +122,9 @@ class HomeController : UIViewController {
   
   //MARK: - API
   func fetchUserData() {
-    Service.shared.fetchUserData()
+    Service.shared.fetchUserData { fullname in
+      self.fullname = fullname
+    }
   }
 }
 

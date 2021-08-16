@@ -16,13 +16,13 @@ struct Service {
   
 //  let currentUid = Auth.auth().currentUser?.uid
   
-  func fetchUserData() {
+  func fetchUserData(completion : @escaping(String) -> Void) {
     guard let currentUid = Auth.auth().currentUser?.uid else {return}
     
     REF_USERS.child(currentUid).observeSingleEvent(of: .value) { snapshot in
       guard let dictionary = snapshot.value as? [String:Any] else {return}
-      let fullname = dictionary["fullname"]
-      print("Debug : user full name is \(fullname)")
+      guard let fullname = dictionary["fullname"] as? String else {return}
+      completion(fullname)
     }
   }
 }
