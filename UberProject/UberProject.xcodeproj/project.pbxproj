@@ -11,6 +11,7 @@
 		0F67170526BD9F3D0033E7E0 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F67170426BD9F3D0033E7E0 /* HomeController.swift */; };
 		0F829C3326C19E5C00D45CBD /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F829C3226C19E5C00D45CBD /* LocationInputView.swift */; };
 		0F87B7A026C02F22002C3E95 /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F87B79F26C02F22002C3E95 /* LocationInputActivationView.swift */; };
+		0F8F8D2126CACC0C00A0B0E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8F8D2026CACC0C00A0B0E9 /* User.swift */; };
 		0F9AB31426B58B1800362E64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB31326B58B1800362E64 /* AppDelegate.swift */; };
 		0F9AB31626B58B1800362E64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AB31526B58B1800362E64 /* SceneDelegate.swift */; };
 		0F9AB31B26B58B1800362E64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F9AB31926B58B1800362E64 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		0F67170426BD9F3D0033E7E0 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		0F829C3226C19E5C00D45CBD /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
 		0F87B79F26C02F22002C3E95 /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
+		0F8F8D2026CACC0C00A0B0E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0F9AB31026B58B1800362E64 /* UberProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9AB31326B58B1800362E64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F9AB31526B58B1800362E64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		0F9AB34826B58BFC00362E64 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0F8F8D2026CACC0C00A0B0E9 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				0F9AB34A26B58C8700362E64 /* LoginController.swift in Sources */,
 				0FC6745826C436990061B647 /* LocationCell.swift in Sources */,
 				0F9AB31626B58B1800362E64 /* SceneDelegate.swift in Sources */,
+				0F8F8D2126CACC0C00A0B0E9 /* User.swift in Sources */,
 				0FC65CC426CAC68C00A00924 /* Service.swift in Sources */,
 				0F87B7A026C02F22002C3E95 /* LocationInputActivationView.swift in Sources */,
 				0F9AB35126B5A6AD00362E64 /* Extensions.swift in Sources */,
